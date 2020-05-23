@@ -38,11 +38,11 @@ else
     # Check the GraalVM version in JAVA_HOME
     if [[ "$JAVA_HOME" != "" ]]; then
         GRAALVM_VERSION=$(extractGraalVMVersion "$JAVA_HOME"/release)
-        if [[ "$GRAALVM_VERSION" != "" ]]; then
-            if [[ "$GRAALVM_VERSION" != "$VERSION" ]]; then
-                fail "Wrong version of GraalVM in \$JAVA_HOME. Expected: $VERSION, found $GRAALVM_VERSION"
-            fi
-        fi
+        # if [[ "$GRAALVM_VERSION" != "" ]]; then
+        #     if [[ "$GRAALVM_VERSION" != "$VERSION" ]]; then
+        #         fail "Wrong version of GraalVM in \$JAVA_HOME. Expected: $VERSION, found $GRAALVM_VERSION"
+        #     fi
+        # fi
         JAVACMD=${JAVACMD:=$JAVA_HOME/bin/java}
         if [[ ! -f $LANGUAGE_PATH ]]; then
             fail "Could not find language on $LANGUAGE_PATH. Did you run mvn package?"
